@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="naver-site-verification" content="ea5411cff6ca8d6f8eea8ea651837bab10c2e79b" />
+    <title>Date of Birth to English Age Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Date of Birth to English Age Converter</h1>
+        <label for="dob">Enter your date of birth:</label>
+        <input type="date" id="dob">
+        <button onclick="calculateAge()">Calculate Age</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateAge() {
+            // Get the user's input
+            const dob = new Date(document.getElementById("dob").value);
+
+            // Calculate the age in years
+            const today = new Date();
+            const ageInMilliseconds = today - dob;
+            const ageInYears = ageInMilliseconds / (365 * 24 * 60 * 60 * 1000);
+
+            // Round the age to the nearest whole number
+            const englishAge = Math.floor(ageInYears);
+
+            // Display the result
+            document.getElementById("result").innerHTML = `Your English age is approximately ${englishAge} years.`;
+        }
+    </script>
+</body>
+</html>
